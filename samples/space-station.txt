@@ -1,0 +1,23 @@
+Orbital Station Kepler-7
+
+The airlock hissed shut behind Commander Reyes as she stepped into the main corridor of Kepler-7. The station was quiet — too quiet for a facility that should have housed forty-three crew members.
+
+"ARIA, status report."
+
+The station AI's voice came through her helmet speaker, slightly distorted. "Welcome back, Commander. Current crew count: eleven. Life support operating at 74% capacity. Sector D remains sealed per quarantine protocol."
+
+Eleven. There had been forty-three when she left for the supply run six days ago.
+
+"Where is everyone?"
+
+A pause — unusual for ARIA. "Crew disposition: eleven active in Sectors A through C. Eight in medical bay, status critical. Twenty-four... unaccounted for."
+
+Reyes pulled up the station map on her wrist display. The familiar ring structure of Kepler-7 glowed in blue, with Sector D pulsing red. Her quarters were in Sector B. The lab — where Dr. Chen had been running experiments on samples from Kepler-442b — was in Sector D.
+
+"ARIA, what happened in Sector D?"
+
+"I am... unable to provide a complete answer, Commander. My sensor logs for Sector D show a 14-hour gap beginning at 0347 station time, three days ago. When sensors came back online, I initiated quarantine."
+
+A figure appeared at the end of the corridor — Dr. Okafor, the station's biologist. She looked like she hadn't slept in days.
+
+"Thank god you're back," Okafor said. "We need to talk about what's in the lab. And we need to talk about it before ARIA hears us."

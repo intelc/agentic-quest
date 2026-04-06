@@ -70,29 +70,29 @@ Every other AI RPG lets the LLM make up whether you succeed or fail. Agentic Que
 
 ## Play Inside Any Fiction
 
-A sample Chinese fiction source is bundled — a time-travel/reincarnation story where you wake up 3 days before a catastrophic super-typhoon, with a magical jade pendant and a race to stockpile supplies:
+Sample source texts are bundled in `samples/` — try one now:
 
 ```bash
-# Try the bundled sample (Chinese apocalypse survival)
-./start.sh my-endworld --source examples/endworld-sample.txt
+# Chinese apocalypse survival — reborn 3 days before a super-typhoon, race to hoard supplies
+./start.sh my-endworld --source samples/endworld-sample.txt
+
+# Fantasy tavern — bounty contracts, missing persons, a mysterious stranger with a proposition
+./start.sh my-tavern --source samples/fantasy-tavern.txt
+
+# Sci-fi space station — 32 crew members missing, quarantined sector, an AI that's hiding something
+./start.sh my-kepler --source samples/space-station.txt
+
+# Detective noir — a "suicide" that doesn't add up, a corporate whistleblower, secrets on a flash drive
+./start.sh my-case --source samples/detective-noir.txt
 ```
 
-The entire world generates in Chinese — locations, NPCs, dialogue, and puzzles all drawn from the source fiction.
+Each world generates entirely from the source — locations, NPCs, dialogue, puzzles, and tone. The Chinese sample narrates in Chinese. The others in English. Any language works.
 
-**Bring your own fiction** — drop any text file and the world adapts:
+**Bring your own fiction** — paste any excerpt, short story, or setting doc into a `.txt` file:
 
 ```bash
-# English sci-fi
-./start.sh my-expanse --source my-expanse-excerpt.txt
-
-# Japanese light novel
-./start.sh my-isekai --source isekai-chapter1.txt
-
-# Any language, any genre — just a .txt file
 ./start.sh my-world --source your-fiction.txt
 ```
-
-The source text becomes the DNA of your world. Locations, characters, tone, and puzzles are all grounded in the fiction. Narration matches the source language automatically.
 
 ---
 
