@@ -21,7 +21,13 @@ chmod +x start.sh
 ./start.sh
 ```
 
-Three commands. The script installs everything, creates a fantasy adventure, and launches your AI coding agent with the game already running:
+That's it. On first run, the script:
+1. Creates `.env` from `.env.example` (eco mode on, auto-detects Claude Code or Codex)
+2. Installs dependencies
+3. Creates a fantasy adventure
+4. Launches your agent with the game running
+
+Edit `.env` to customize (switch agents, add API key, disable eco mode):
 
 <img src="assets/screenshot-start.png" alt="./start.sh launching Agentic Quest in Claude Code" width="600">
 
@@ -105,8 +111,10 @@ The game is a folder. Your AI coding agent reads `CLAUDE.md` and becomes the gam
 
 ```
 my-adventure/
-├── CLAUDE.md           # Game master instructions
-├── .claude/            # Auto-approved engine permissions
+├── CLAUDE.md           # Instructions (Claude Code)
+├── AGENTS.md           # Instructions (Codex) — same content
+├── .claude/            # Claude Code permissions
+├── .codex/             # Codex permissions
 ├── world/
 │   ├── crossroads/     # Each zone is a folder
 │   │   ├── zone.yaml       # Connections, NPCs, puzzles
@@ -165,21 +173,46 @@ The AI calls these automatically. In technical mode, you can run them yourself.
 
 ---
 
+## Supported Agents
+
+| Agent | Status | Install |
+|-------|--------|---------|
+| **[Claude Code](https://claude.ai/download)** | Fully supported | `brew install claude-code` or [download](https://claude.ai/download) |
+| **[Codex](https://openai.com/codex)** | Fully supported | `npm install -g @openai/codex` |
+
+The script auto-detects which agent you have installed. Override with `AQ_AGENT=codex` or `AQ_AGENT=claude` in `.env`.
+
+## Configuration (`.env`)
+
+```bash
+# Agent harness: "claude" (default) or "codex"
+AQ_AGENT=claude
+
+# Eco mode: uses your agent CLI for world generation (no API key needed)
+ECO=on
+
+# Anthropic API key (only needed if ECO=off)
+# ANTHROPIC_API_KEY=sk-ant-...
+```
+
+**Eco mode** (default) generates zones through your agent CLI — free, no API key needed. Turn it off (`ECO=off`) and set `ANTHROPIC_API_KEY` for faster, direct API generation.
+
+---
+
 ## Requirements
 
 - **Python 3.11+**
-- **[Claude Code](https://claude.ai/download)** or **[Codex](https://openai.com/codex)** (Codex support coming soon)
-- **ANTHROPIC_API_KEY** for zone generation — set via `.env` file or environment variable. Or use eco mode (`ECO=on` in `.env`) to generate via CLI instead.
+- **[Claude Code](https://claude.ai/download)** or **[Codex](https://openai.com/codex)**
 
 ---
 
 ## What's Next
 
-- [ ] Codex support (multi-agent harness)
 - [ ] RAG pipeline for full novels (play inside entire books)
 - [ ] Multiplayer shared worlds
 - [ ] More presets (sci-fi, post-apocalyptic, historical)
 - [ ] Community preset marketplace
+- [ ] Web interface option
 
 ---
 

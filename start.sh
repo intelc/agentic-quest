@@ -78,6 +78,12 @@ else
 fi
 echo -e "${GREEN}Using agent: ${AGENT_CLI}${NC}"
 
+# Auto-create .env from .env.example if missing
+if [ ! -f "$SCRIPT_DIR/.env" ] && [ -f "$SCRIPT_DIR/.env.example" ]; then
+    echo -e "${YELLOW}Creating .env from .env.example (edit to customize)${NC}"
+    sed "s/^AQ_AGENT=.*/AQ_AGENT=$AGENT_CLI/" "$SCRIPT_DIR/.env.example" > "$SCRIPT_DIR/.env"
+fi
+
 # Install aq if not already installed
 if ! command -v aq &>/dev/null; then
     echo -e "${YELLOW}Installing aq...${NC}"
