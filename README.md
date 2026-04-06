@@ -17,6 +17,7 @@ An LLM-powered text RPG where your puzzles are real code, your companions are AI
 ```bash
 git clone https://github.com/intelc/agentic-quest.git
 cd agentic-quest
+chmod +x start.sh
 ./start.sh
 ```
 
