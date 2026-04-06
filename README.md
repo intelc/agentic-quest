@@ -184,9 +184,14 @@ The script auto-detects which agent you have installed. Override with `AQ_AGENT=
 
 ## Configuration (`.env`)
 
+On first run, `start.sh` creates `.env` from `.env.example`. Edit to customize:
+
 ```bash
-# Agent harness: "claude" (default) or "codex"
+# Agent harness: "claude" (recommended) or "codex"
 AQ_AGENT=claude
+
+# Launch mode: "cli" (terminal) or "app" (macOS Claude Code desktop app)
+AQ_LAUNCH=cli
 
 # Eco mode: uses your agent CLI for world generation (no API key needed)
 ECO=on
@@ -195,7 +200,12 @@ ECO=on
 # ANTHROPIC_API_KEY=sk-ant-...
 ```
 
-**Eco mode** (default) generates zones through your agent CLI — free, no API key needed. Turn it off (`ECO=off`) and set `ANTHROPIC_API_KEY` for faster, direct API generation.
+| Setting | Options | What it does |
+|---------|---------|-------------|
+| `AQ_AGENT` | `claude` (recommended), `codex` | Which AI coding agent to use |
+| `AQ_LAUNCH` | `cli` (default), `app` | Terminal or macOS desktop app |
+| `ECO` | `on` (default), `off` | Free CLI-based generation vs direct API |
+| `ANTHROPIC_API_KEY` | your key | Only needed when `ECO=off` |
 
 ---
 
@@ -208,11 +218,11 @@ ECO=on
 
 ## What's Next
 
-- [ ] RAG pipeline for full novels (play inside entire books)
+- [ ] RAG pipeline for full novels (play inside entire books, not just excerpts)
+- [ ] More presets (sci-fi, post-apocalyptic, historical, mystery)
 - [ ] Multiplayer shared worlds
-- [ ] More presets (sci-fi, post-apocalyptic, historical)
-- [ ] Community preset marketplace
-- [ ] Web interface option
+- [ ] Web interface alongside CLI
+- [ ] Community preset & fiction source marketplace
 
 ---
 
