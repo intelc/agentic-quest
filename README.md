@@ -1,11 +1,6 @@
 <div align="center">
 
-```
-  ╔═══════════════════════════════════════╗
-  ║       A G E N T I C  Q U E S T       ║
-  ║  Drop into any fiction. Play inside.  ║
-  ╚═══════════════════════════════════════╝
-```
+<img src="assets/banner.png" alt="Agentic Quest" width="700">
 
 **Drop in any fiction. Play inside the story.**
 
@@ -79,6 +74,10 @@ The source text becomes the DNA of your world. Locations, characters, tone, and 
 ---
 
 ## How It Works
+
+<div align="center">
+<img src="assets/preview.png" alt="A book opens into a living world — code on the left, adventure on the right" width="600">
+</div>
 
 ```
 ┌─────────────────────────────────────────────────┐
