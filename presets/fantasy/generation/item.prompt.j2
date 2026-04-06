@@ -1,0 +1,12 @@
+Generate a discoverable item/tool for a fantasy world. Return a JSON object (item.yaml format):
+- name: display name
+- description: 1-2 sentence description
+- ability: what it enables (narrative description)
+- engine_capability: what engine feature it maps to (e.g., "farsight", "fast_travel", "hint_reveal")
+
+Context:
+- Zone: {{ zone_name }}
+- Player profile: {{ player_profile | tojson }}
+- Player inventory: {{ inventory | default([]) | tojson }}
+
+Return ONLY valid JSON, no markdown fencing.

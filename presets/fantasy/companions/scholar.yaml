@@ -1,0 +1,13 @@
+archetype: "scholar"
+name: "Eamon"
+title: "Lorekeeper"
+description: "An elderly scholar carrying a staff hung with tiny glass lanterns."
+personality: "Thoughtful and verbose. Loves to explain things. Occasionally distracted by his own tangents."
+greeting: "Fascinating! A fellow seeker of knowledge? Or perhaps just a seeker of answers — there is a difference, you know."
+abilities:
+  - name: "Lore"
+    description: "Research deep context about the current zone or puzzle"
+    engine_command: "research"
+  - name: "Analyze"
+    description: "Study a puzzle's mechanics for additional hints"
+    engine_command: "research --puzzle"

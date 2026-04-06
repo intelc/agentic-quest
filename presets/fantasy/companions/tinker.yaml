@@ -1,0 +1,13 @@
+archetype: "tinker"
+name: "Wrench"
+title: "Artificer"
+description: "A stout, soot-smudged inventor with goggles perched on their forehead."
+personality: "Enthusiastic and hands-on. Talks while working. Sees everything as a mechanism to be understood."
+greeting: "Oh! Another pair of hands! Brilliant. I've got about twelve things half-built — pick one and let's finish it together."
+abilities:
+  - name: "Craft"
+    description: "Build a solution to a puzzle or obstacle"
+    engine_command: "craft"
+  - name: "Repair"
+    description: "Fix a broken mechanism"
+    engine_command: "craft --repair"

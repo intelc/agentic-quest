@@ -1,0 +1,6 @@
+name: "Old Merchant"
+description: "A wizened figure with knowing eyes and a sly smile."
+dialogue:
+  greeting: "Ah, a traveler! The roads are strange these days. Not many folk pass through the crossroads anymore."
+  hint: "The stars follow the sun, they say. Always have. The moon? Well, she's always in between, isn't she? Reflecting what she borrows."
+  farewell: "Safe travels, friend. And remember — the signpost remembers the way, even if we forget."

@@ -1,0 +1,4 @@
+name: "Fantasy"
+description: "A classic fantasy world of forests, dungeons, and magic."
+default_seed: 42
+starter_zone: "crossroads"

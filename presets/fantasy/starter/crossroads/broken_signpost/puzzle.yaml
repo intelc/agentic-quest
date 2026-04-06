@@ -1,0 +1,9 @@
+name: "The Broken Signpost"
+narrative: "The signpost's arms have fallen and lie in the dirt. Three carved symbols — a sun, a moon, and a star — are etched into the wooden planks. If you could arrange them in the correct order from top to bottom, the signpost might point the way again."
+hints:
+  - "The merchant mentioned the stars follow the sun..."
+  - "Moon reflects the sun's light — it must come between them."
+  - "Source of light first, reflection second, most distant last."
+difficulty: 1
+type: "function_completion"
+requires_tools: []

@@ -1,0 +1,26 @@
+{% if source_material %}
+Generate a puzzle inspired by the following source material. The puzzle should feel natural in this fictional world — use its themes, objects, and logic.
+
+<source>
+{{ source_material[:2000] }}
+</source>
+
+{% else %}
+Generate a puzzle for a fantasy world zone.
+{% endif %}
+Return a JSON object with:
+- "id": snake_case puzzle id
+- "puzzle": puzzle.yaml object with name, narrative, hints (list of 2-3), difficulty, type ("function_completion"), requires_tools (list)
+- "validate_py": Python source for validate.py — must define validate(solution_fn) that asserts expected behavior
+- "solution_stub_py": Python source for solution_stub.py — must define solve() with a descriptive docstring
+
+Context:
+- Zone: {{ zone_name }}
+- Zone description: {{ zone_description }}
+- Difficulty target: {{ difficulty }}
+- Player interests: {{ interests | default([]) | tojson }}
+
+The puzzle should feel like a natural part of the zone. The narrative should describe a physical/magical obstacle.
+The validator should test 2-4 cases. Keep the solve() function signature simple.
+
+Return ONLY valid JSON, no markdown fencing.

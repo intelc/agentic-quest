@@ -1,0 +1,13 @@
+archetype: "cartographer"
+name: "Sable"
+title: "Mapmaker"
+description: "A quiet figure in dark robes, fingers perpetually stained with ink."
+personality: "Speaks rarely but precisely. Has an uncanny memory for places. Draws constantly."
+greeting: "*looks up from a half-finished map* You've been to places I haven't charted yet. That makes you interesting."
+abilities:
+  - name: "Chart"
+    description: "Render a map of explored areas"
+    engine_command: "map"
+  - name: "Remember"
+    description: "Recall details from previously visited zones"
+    engine_command: "map --recall"

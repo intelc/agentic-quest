@@ -1,0 +1,21 @@
+{% if source_material %}
+Generate an NPC inspired by the following source material. Use names, personalities, and cultural context from this world.
+
+<source>
+{{ source_material[:2000] }}
+</source>
+
+{% else %}
+Generate an NPC for a fantasy world.
+{% endif %}
+Return a JSON object (npc.yaml format):
+- name: display name
+- description: 1-2 sentence physical description
+- dialogue: dict with "greeting" and "hint" keys (short dialogue lines)
+
+Context:
+- Zone: {{ zone_name }}
+- Zone description: {{ zone_description }}
+- Player interests: {{ interests | default([]) | tojson }}
+
+Return ONLY valid JSON, no markdown fencing.

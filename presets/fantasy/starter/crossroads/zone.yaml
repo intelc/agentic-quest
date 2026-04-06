@@ -1,0 +1,15 @@
+name: "The Crossroads"
+description: "A weathered signpost marks the meeting of three paths."
+connections:
+  dark_forest:
+    name: "Dark Forest"
+    teaser: "Twisted trees loom ahead."
+    status: "stub"
+  river_valley:
+    name: "River Valley"
+    teaser: "The sound of rushing water."
+    status: "stub"
+npcs:
+  - old_merchant
+puzzles:
+  - broken_signpost

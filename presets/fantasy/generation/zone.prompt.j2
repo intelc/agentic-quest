@@ -1,0 +1,36 @@
+{% if source_material %}
+Generate a zone inspired by the following source material. Stay faithful to the locations, characters, tone, and cultural context. If the source is in a non-English language, use that language for names and narrative. Match the source's style.
+
+<source>
+{{ source_material[:3000] }}
+</source>
+
+{% else %}
+Generate a zone for a fantasy world.
+{% endif %}
+Return a JSON object with these keys:
+- "zone": a zone.yaml object with name, description, connections (dict of zone_id → {name, teaser, status: "stub"}), npcs (list of npc ids), puzzles (list of puzzle ids)
+- "narrative": a 2-3 paragraph narrative.md description in second person
+- "npcs": list of NPC objects, each with: id (snake_case, ASCII), name (display name, can be any language), description, dialogue (dict with "greeting" and "hint" keys)
+- "puzzles": list of puzzle objects (if pacing calls for one), each with: id, puzzle (puzzle.yaml object), validate_py (Python source), solution_stub_py (Python source)
+
+Context:
+- Adjacent zones: {{ adjacent_zones | tojson }}
+- Player profile: {{ player_profile | tojson }}
+- Difficulty target: {{ difficulty }}
+- Pacing hint: {{ pacing }}
+- World seed: {{ world_seed | default(42) }}
+- Player inventory: {{ inventory | default([]) | tojson }}
+- Unsolved puzzles: {{ open_puzzles | default([]) | tojson }}
+
+Rules:
+- All IDs (zone_id, npc_id, puzzle_id) must be ASCII snake_case (e.g., "old_merchant", "dark_forest"). Display names can be any language.
+- Include 1-2 NPCs per zone with dialogue
+- Zone connections should include a path back to the zone the player came from (status: "explored") and 1-3 new connections (status: "stub")
+- If pacing is "puzzle", include exactly one puzzle of type "function_completion" at the target difficulty
+- If pacing is "exploration", no puzzle — focus on rich narrative, NPCs, or discoverable items
+- Validators must be self-contained Python with a validate(solution_fn) signature
+- Solution stubs must have a solve() function with a descriptive docstring
+- Puzzle difficulty {{ difficulty }}: 1=trivial (sort a list), 2=easy (simple logic), 3=medium (algorithm), 4=hard (multi-step), 5=very hard
+
+Return ONLY valid JSON, no markdown fencing.

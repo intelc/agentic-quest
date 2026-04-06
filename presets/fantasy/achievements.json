@@ -1,0 +1,74 @@
+[
+    {
+        "id": "first_steps",
+        "name": "First Steps",
+        "description": "Visit 3 different zones",
+        "category": "exploration",
+        "xp": 10,
+        "rarity": "common",
+        "trigger": {"type": "zones_visited", "min": 3}
+    },
+    {
+        "id": "wanderer",
+        "name": "Wanderer",
+        "description": "Visit 7 different zones",
+        "category": "exploration",
+        "xp": 50,
+        "rarity": "rare",
+        "trigger": {"type": "zones_visited", "min": 7}
+    },
+    {
+        "id": "puzzle_novice",
+        "name": "Puzzle Novice",
+        "description": "Solve your first puzzle",
+        "category": "puzzle",
+        "xp": 10,
+        "rarity": "common",
+        "trigger": {"type": "puzzles_solved", "min": 1}
+    },
+    {
+        "id": "puzzle_adept",
+        "name": "Puzzle Adept",
+        "description": "Solve 5 puzzles",
+        "category": "puzzle",
+        "xp": 50,
+        "rarity": "rare",
+        "trigger": {"type": "puzzles_solved", "min": 5}
+    },
+    {
+        "id": "social_butterfly",
+        "name": "Social Butterfly",
+        "description": "Collect 3 items from NPCs",
+        "category": "social",
+        "xp": 25,
+        "rarity": "uncommon",
+        "trigger": {"type": "items_collected", "min": 3}
+    },
+    {
+        "id": "well_equipped",
+        "name": "Well Equipped",
+        "description": "Collect 5 items",
+        "category": "discovery",
+        "xp": 25,
+        "rarity": "uncommon",
+        "trigger": {"type": "items_collected", "min": 5}
+    },
+    {
+        "id": "party_leader",
+        "name": "Party Leader",
+        "description": "Recruit 3 companions",
+        "category": "social",
+        "xp": 50,
+        "rarity": "rare",
+        "trigger": {"type": "companions_recruited", "min": 3}
+    },
+    {
+        "id": "first_hint",
+        "name": "Asking for Directions",
+        "description": "Use a hint for the first time",
+        "category": "puzzle",
+        "xp": 10,
+        "rarity": "common",
+        "trigger": {"type": "hints_used", "min": 1}
+    }
+]

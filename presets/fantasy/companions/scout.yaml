@@ -1,0 +1,13 @@
+archetype: "scout"
+name: "Lyra"
+title: "Wayfinder"
+description: "A keen-eyed ranger with a tattered map always in hand."
+personality: "Cautious but curious. Speaks in short, observational sentences. Trusts her instincts."
+greeting: "I've been watching the roads. Something's shifted — the paths don't lead where they used to. Stay close, and I'll keep us on track."
+abilities:
+  - name: "Farsight"
+    description: "Scan an adjacent zone before entering"
+    engine_command: "scout"
+  - name: "Track"
+    description: "Find hidden paths in the current zone"
+    engine_command: "scout --hidden"
