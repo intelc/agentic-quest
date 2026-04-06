@@ -62,6 +62,12 @@ if ! command -v python3 &>/dev/null; then
     exit 1
 fi
 
+# Auto-create .env from .env.example if missing (must happen before loading)
+if [ ! -f "$SCRIPT_DIR/.env" ] && [ -f "$SCRIPT_DIR/.env.example" ]; then
+    echo -e "${YELLOW}Creating .env from .env.example (edit to customize)${NC}"
+    cp "$SCRIPT_DIR/.env.example" "$SCRIPT_DIR/.env"
+fi
+
 # Load .env if it exists (need AQ_AGENT and ECO before detection)
 for _envfile in "$SCRIPT_DIR/.env" "$HOME/.env"; do
     if [ -f "$_envfile" ]; then
@@ -93,12 +99,6 @@ else
     exit 1
 fi
 echo -e "${GREEN}Using agent: ${AGENT_CLI}${NC}"
-
-# Auto-create .env from .env.example if missing (keeps defaults from example)
-if [ ! -f "$SCRIPT_DIR/.env" ] && [ -f "$SCRIPT_DIR/.env.example" ]; then
-    echo -e "${YELLOW}Creating .env from .env.example (edit to customize)${NC}"
-    cp "$SCRIPT_DIR/.env.example" "$SCRIPT_DIR/.env"
-fi
 
 # Set up venv and install aq if not already installed
 if [ ! -f "$SCRIPT_DIR/.venv/bin/activate" ]; then
