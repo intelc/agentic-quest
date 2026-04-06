@@ -15,24 +15,29 @@ An LLM-powered text RPG where your puzzles are real code, your companions are AI
 ## Quick Start
 
 ```bash
-git clone https://github.com/user/agentic-quest.git
+git clone https://github.com/intelc/agentic-quest.git
 cd agentic-quest
 ./start.sh
 ```
 
-Three commands. The script installs everything, creates a fantasy adventure, and launches Claude Code with the game already running. You'll see something like:
+Three commands. The script installs everything, creates a fantasy adventure, and launches your AI coding agent with the game already running:
 
-```
-=== The Crossroads ===
+<img src="assets/screenshot-start.png" alt="./start.sh launching Agentic Quest in Claude Code" width="600">
 
-You stand at a crossroads beneath an open sky. A weathered signpost leans
-to one side. An old merchant sits nearby, arranging curious wares...
+The first scene drops you into the world:
 
-[A] Examine the broken signpost — the symbols might mean something
-[B] Approach the old merchant — he seems eager to talk
-[C] Ask Lyra to scout the Dark Forest path
-[D] Something else (describe what you'd like to do)
-```
+> **=== The Crossroads ===**
+>
+> You stand at a crossroads beneath an open sky, where three dirt paths converge under a canopy of nothing but pale blue and slow-drifting clouds. A weathered signpost leans beside you, its three wooden arms pointing in different directions — but the symbols carved into each have been worn smooth by years of wind and rain.
+>
+> A few paces away, an old merchant sits cross-legged on the ground, his wares spread across a threadbare blanket. He catches your eye and grins — a gap-toothed, knowing sort of grin. His goods are... unusual. A brass compass whose needle spins lazily with no regard for north. A glass vial that seems to hold a tiny, pulsing light. And a small leather-bound book with no title on its cover.
+>
+> **The Old Merchant** clears his throat. *"Ah, a fresh pair of boots on the road. Haven't seen a traveler in... well. Too long."* He gestures at his blanket. *"Care to browse? Or perhaps you're the sort who fixes things before they move on."* His eyes flick toward the broken signpost.
+>
+> **[A]** Examine the broken signpost — those faded symbols might still mean something
+> **[B]** Approach the merchant — his wares are strange, and he seems to know things
+> **[C]** "Lyra, scout ahead down that dark tree line." *(Send Lyra to scout the Dark Forest)*
+> **[D]** Something else — describe what you'd like to do
 
 Type a letter or describe what you want to do. The world responds.
 
