@@ -204,10 +204,10 @@ echo ""
 cd "$ADVENTURE_DIR"
 
 if [ "${AQ_LAUNCH:-cli}" = "app" ] && [ "$AGENT_CLI" = "claude" ]; then
-    echo -e "${CYAN}Opening Claude Code desktop app...${NC}"
+    echo -e "${CYAN}Opening Claude desktop app...${NC}"
     echo -e "${YELLOW}Type: I just arrived. What do I see?${NC}"
     echo ""
-    open -a "Claude Code" "$(pwd)"
+    open -a "Claude" "$(pwd)"
 elif [ "$AGENT_CLI" = "codex" ]; then
     echo -e "${CYAN}Launching codex...${NC}"
     echo ""
