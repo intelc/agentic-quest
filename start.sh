@@ -62,6 +62,18 @@ if ! command -v python3 &>/dev/null; then
     exit 1
 fi
 
+# Load .env if it exists (need AQ_AGENT and ECO before detection)
+for _envfile in "$SCRIPT_DIR/.env" "$HOME/.env"; do
+    if [ -f "$_envfile" ]; then
+        # Source only AQ_AGENT and ECO — don't export API keys into the shell
+        _aq_agent=$(grep -v '^#' "$_envfile" | grep '^AQ_AGENT=' | head -1 | cut -d= -f2- | tr -d "'" | tr -d '"' | tr -d ' ')
+        _eco_val=$(grep -v '^#' "$_envfile" | grep '^ECO=' | head -1 | cut -d= -f2- | tr -d "'" | tr -d '"' | tr -d ' ')
+        [ -n "$_aq_agent" ] && AQ_AGENT="${AQ_AGENT:-$_aq_agent}"
+        [ -n "$_eco_val" ] && ECO="${ECO:-$_eco_val}"
+        break
+    fi
+done
+
 # Detect agent CLI (Claude Code or Codex)
 AGENT_CLI=""
 if [ -n "$AQ_AGENT" ]; then
