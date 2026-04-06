@@ -81,17 +81,32 @@ for _envfile in "$SCRIPT_DIR/.env" "$HOME/.env"; do
 done
 
 # Detect agent CLI (Claude Code or Codex) and resolve full path
+# Helper: find an executable by checking PATH, then well-known install locations
+find_cli() {
+    local name="$1"; shift
+    local p
+    p="$(command -v "$name" 2>/dev/null)" && [ -x "$p" ] && { echo "$p"; return 0; }
+    for p in "$@"; do
+        [ -x "$p" ] && { echo "$p"; return 0; }
+    done
+    return 1
+}
+
 AGENT_CLI=""
 AGENT_PATH=""
 if [ -n "$AQ_AGENT" ]; then
     AGENT_CLI="$AQ_AGENT"
-    AGENT_PATH="$(command -v "$AQ_AGENT" 2>/dev/null || echo "$AQ_AGENT")"
-elif command -v claude &>/dev/null; then
+    AGENT_PATH="$(find_cli "$AQ_AGENT" "$HOME/.claude/local/$AQ_AGENT")" \
+        || AGENT_PATH="$AQ_AGENT"
+elif AGENT_PATH="$(find_cli claude \
+        "$HOME/.claude/local/claude" \
+        /usr/local/bin/claude \
+        "$HOME/.local/bin/claude")"; then
     AGENT_CLI="claude"
-    AGENT_PATH="$(command -v claude)"
-elif command -v codex &>/dev/null; then
+elif AGENT_PATH="$(find_cli codex \
+        /usr/local/bin/codex \
+        "$HOME/.local/bin/codex")"; then
     AGENT_CLI="codex"
-    AGENT_PATH="$(command -v codex)"
 else
     echo "Error: No agent CLI found."
     echo "Install Claude Code: https://claude.ai/download"
