@@ -68,22 +68,24 @@ for _envfile in "$SCRIPT_DIR/.env" "$HOME/.env"; do
         # Source only AQ_AGENT and ECO — don't export API keys into the shell
         _aq_agent=$(grep -v '^#' "$_envfile" | grep '^AQ_AGENT=' | head -1 | cut -d= -f2- | tr -d "'" | tr -d '"' | tr -d ' ')
         _eco_val=$(grep -v '^#' "$_envfile" | grep '^ECO=' | head -1 | cut -d= -f2- | tr -d "'" | tr -d '"' | tr -d ' ')
-        _aq_launch=$(grep -v '^#' "$_envfile" | grep '^AQ_LAUNCH=' | head -1 | cut -d= -f2- | tr -d "'" | tr -d '"' | tr -d ' ')
         [ -n "$_aq_agent" ] && AQ_AGENT="${AQ_AGENT:-$_aq_agent}"
         [ -n "$_eco_val" ] && ECO="${ECO:-$_eco_val}"
-        [ -n "$_aq_launch" ] && AQ_LAUNCH="${AQ_LAUNCH:-$_aq_launch}"
         break
     fi
 done
 
-# Detect agent CLI (Claude Code or Codex)
+# Detect agent CLI (Claude Code or Codex) and resolve full path
 AGENT_CLI=""
+AGENT_PATH=""
 if [ -n "$AQ_AGENT" ]; then
     AGENT_CLI="$AQ_AGENT"
+    AGENT_PATH="$(command -v "$AQ_AGENT" 2>/dev/null || echo "$AQ_AGENT")"
 elif command -v claude &>/dev/null; then
     AGENT_CLI="claude"
+    AGENT_PATH="$(command -v claude)"
 elif command -v codex &>/dev/null; then
     AGENT_CLI="codex"
+    AGENT_PATH="$(command -v codex)"
 else
     echo "Error: No agent CLI found."
     echo "Install Claude Code: https://claude.ai/download"
@@ -200,20 +202,8 @@ fi
 
 echo ""
 
-# Launch the agent in the adventure directory
+# Launch the agent in the adventure directory (use full path — venv may shadow PATH)
 cd "$ADVENTURE_DIR"
-
-if [ "${AQ_LAUNCH:-cli}" = "app" ] && [ "$AGENT_CLI" = "claude" ]; then
-    echo -e "${CYAN}Opening Claude desktop app...${NC}"
-    echo -e "${YELLOW}Type: I just arrived. What do I see?${NC}"
-    echo ""
-    open -a "Claude" "$(pwd)"
-elif [ "$AGENT_CLI" = "codex" ]; then
-    echo -e "${CYAN}Launching codex...${NC}"
-    echo ""
-    exec codex "I just arrived. What do I see?"
-else
-    echo -e "${CYAN}Launching claude...${NC}"
-    echo ""
-    exec claude "I just arrived. What do I see?"
-fi
+echo -e "${CYAN}Launching ${AGENT_CLI}...${NC}"
+echo ""
+exec "$AGENT_PATH" "I just arrived. What do I see?"

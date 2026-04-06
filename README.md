@@ -190,9 +190,6 @@ On first run, `start.sh` creates `.env` from `.env.example`. Edit to customize:
 # Agent harness: "claude" (recommended) or "codex"
 AQ_AGENT=claude
 
-# Launch mode: "cli" (terminal) or "app" (macOS Claude Code desktop app)
-AQ_LAUNCH=cli
-
 # Eco mode: uses your agent CLI for world generation (no API key needed)
 ECO=on
 
@@ -203,11 +200,8 @@ ECO=on
 | Setting | Options | What it does |
 |---------|---------|-------------|
 | `AQ_AGENT` | `claude` (recommended), `codex` | Which AI coding agent to use |
-| `AQ_LAUNCH` | `cli` (default), `app` | Terminal or macOS Claude desktop app (see note below) |
 | `ECO` | `on` (default), `off` | Free CLI-based generation vs direct API |
 | `ANTHROPIC_API_KEY` | your key | Only needed when `ECO=off` |
-
-> **App mode (experimental):** `AQ_LAUNCH=app` opens Claude's desktop app in Cowork mode. When it opens, grant permission for Claude to access the adventure folder, then say hi to start playing. We recommend CLI mode (`AQ_LAUNCH=cli`) for the most reliable experience.
 
 ---
 
