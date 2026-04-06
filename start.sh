@@ -68,8 +68,10 @@ for _envfile in "$SCRIPT_DIR/.env" "$HOME/.env"; do
         # Source only AQ_AGENT and ECO — don't export API keys into the shell
         _aq_agent=$(grep -v '^#' "$_envfile" | grep '^AQ_AGENT=' | head -1 | cut -d= -f2- | tr -d "'" | tr -d '"' | tr -d ' ')
         _eco_val=$(grep -v '^#' "$_envfile" | grep '^ECO=' | head -1 | cut -d= -f2- | tr -d "'" | tr -d '"' | tr -d ' ')
+        _aq_launch=$(grep -v '^#' "$_envfile" | grep '^AQ_LAUNCH=' | head -1 | cut -d= -f2- | tr -d "'" | tr -d '"' | tr -d ' ')
         [ -n "$_aq_agent" ] && AQ_AGENT="${AQ_AGENT:-$_aq_agent}"
         [ -n "$_eco_val" ] && ECO="${ECO:-$_eco_val}"
+        [ -n "$_aq_launch" ] && AQ_LAUNCH="${AQ_LAUNCH:-$_aq_launch}"
         break
     fi
 done
@@ -191,13 +193,21 @@ else
 fi
 
 echo ""
-echo -e "${CYAN}Launching ${AGENT_CLI}...${NC}"
-echo ""
 
-# Launch the agent in the adventure directory with an opening message
+# Launch the agent in the adventure directory
 cd "$ADVENTURE_DIR"
-if [ "$AGENT_CLI" = "codex" ]; then
+
+if [ "${AQ_LAUNCH:-cli}" = "app" ] && [ "$AGENT_CLI" = "claude" ]; then
+    echo -e "${CYAN}Opening Claude Code desktop app...${NC}"
+    echo -e "${YELLOW}Type: I just arrived. What do I see?${NC}"
+    echo ""
+    open -a "Claude Code" "$(pwd)"
+elif [ "$AGENT_CLI" = "codex" ]; then
+    echo -e "${CYAN}Launching codex...${NC}"
+    echo ""
     exec codex "I just arrived. What do I see?"
 else
+    echo -e "${CYAN}Launching claude...${NC}"
+    echo ""
     exec claude "I just arrived. What do I see?"
 fi
