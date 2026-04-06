@@ -1,0 +1,44 @@
+【末世囤货】示例源文本 — Sample Source Fiction
+
+姜宁猛地从床上坐起来，心脏砰砰直跳。
+
+窗外，阳光正好。手机屏幕显示：2024年8月15日，星期四。
+
+她深吸一口气。如果记忆没有出错的话，三天后——超强台风"菜刀"将在这座城市登陆。风力16到19级。届时，整个城市将陷入长达数月的末世灾难。
+
+上一世，她什么都没准备。和大多数人一样，觉得"不过是场台风"。结果，断水断电断网，物资疯抢一空，物价飞涨……
+
+这一世，她不会再犯同样的错误。
+
+她摸了摸脖子上的玉佩——一枚温润的翡翠吊坠，前世在废墟中偶然发现的。它内部有一个巨大的空间，足够囤积大量物资。
+
+银行卡里有二十万。三天时间。一个空间法宝。
+
+姜宁开始列清单：
+- 饮用水（至少3个月的量）
+- 压缩饼干、方便面、罐头
+- 发电机和燃油
+- 常用药品和急救包
+- 手电筒、蜡烛、打火机
+- 现金（ATM机很快就会断电）
+
+她穿上鞋，抓起钱包，推开了门。
+
+城南商业街还是一片祥和。王老板正在店门口抽烟，街上的流浪狗懒洋洋地趴在树荫下。没有人知道灾难即将来临。
+
+"王老板，你这还有大桶水吗？我要五十桶。"
+
+王老板愣了一下："五十桶？你开派对啊？"
+
+姜宁笑了笑："囤着喝呗。"
+
+---
+
+This is a sample excerpt for Agentic Quest. It describes a time-travel/reincarnation
+story where the protagonist wakes up 3 days before a catastrophic super-typhoon,
+armed with foreknowledge and a magical jade pendant with spatial storage.
+
+The full experience generates a Chinese-language world with locations, NPCs, and
+puzzles drawn from this fiction. Try it:
+
+  ./start.sh my-endworld --source examples/endworld-sample.txt

@@ -70,18 +70,29 @@ Every other AI RPG lets the LLM make up whether you succeed or fail. Agentic Que
 
 ## Play Inside Any Fiction
 
+A sample Chinese fiction source is bundled — a time-travel/reincarnation story where you wake up 3 days before a catastrophic super-typhoon, with a magical jade pendant and a race to stockpile supplies:
+
 ```bash
-# Chinese web novel
-./start.sh my-wuxia --source wuxia_chapter1.txt
-
-# English sci-fi
-./start.sh my-expanse --source expanse_excerpt.txt
-
-# Any language, any genre
-./start.sh my-world --source your_fiction.txt
+# Try the bundled sample (Chinese apocalypse survival)
+./start.sh my-endworld --source examples/endworld-sample.txt
 ```
 
-The source text becomes the DNA of your world. Locations, characters, tone, and puzzles are all grounded in the fiction. Future RAG support will allow full novels.
+The entire world generates in Chinese — locations, NPCs, dialogue, and puzzles all drawn from the source fiction.
+
+**Bring your own fiction** — drop any text file and the world adapts:
+
+```bash
+# English sci-fi
+./start.sh my-expanse --source my-expanse-excerpt.txt
+
+# Japanese light novel
+./start.sh my-isekai --source isekai-chapter1.txt
+
+# Any language, any genre — just a .txt file
+./start.sh my-world --source your-fiction.txt
+```
+
+The source text becomes the DNA of your world. Locations, characters, tone, and puzzles are all grounded in the fiction. Narration matches the source language automatically.
 
 ---
 
