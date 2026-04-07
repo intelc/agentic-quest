@@ -6,6 +6,9 @@
 
 An LLM-powered text RPG where your puzzles are real code, your companions are AI agents, and the world generates around you. Works with Claude Code and Codex.
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+
 [Quick Start](#quick-start) | [Features](#what-makes-this-different) | [How It Works](#how-it-works) | [Source Worlds](#play-inside-any-fiction)
 
 </div>
@@ -230,6 +233,12 @@ ECO=on
 - [ ] Multiplayer shared worlds
 - [ ] Web interface alongside CLI
 - [ ] Community preset & fiction source marketplace
+
+---
+
+## License
+
+[MIT](LICENSE) © Intel Chen
 
 ---
 

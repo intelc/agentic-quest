@@ -6,6 +6,8 @@ build-backend = "setuptools.build_meta"
 name = "agentic-quest"
 version = "0.1.0"
 description = "Drop into any fiction. Solve code-backed puzzles. Command AI companions."
+license = "MIT"
+authors = [{name = "Intel Chen"}]
 requires-python = ">=3.11"
 dependencies = [
     "click>=8.1",
